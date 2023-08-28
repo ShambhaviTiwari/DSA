@@ -1,0 +1,19 @@
+#User function Template for python3
+
+
+class Solution:
+    def missingNumber(self,array,n):
+        # code here
+        expected_sum = 0
+        actual_sum = 0
+        
+        for i in range(1,n+1):
+            expected_sum += i
+        
+        for i in range(0,n-1):
+            actual_sum += array[i]
+            
+        return expected_sum - actual_sum
+            
+        
+
