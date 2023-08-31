@@ -1,0 +1,26 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def getLongestSubarray(nums: [int], k: int) -> int:
+
+    # Write your code here
+    sumdict = {}
+    sumk = 0
+    maxlen = 0
+    for i in range(0,len(nums)):
+        #calculate prefix sum till index
+        sumk += nums[i]
+        if sumk == k:
+            maxlen = max(maxlen,i+1)
+        
+        #calculate sum of remaining part
+        rem = sumk - k 
+        if rem in sumdict :
+            #calculate length and update maxlen
+            leng = i - sumdict[rem]
+            maxlen = max(maxlen,leng)
+        if sumk not in sumdict:             
+            sumdict[sumk] = i
+    return int(maxlen);
