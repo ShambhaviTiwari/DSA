@@ -1,0 +1,56 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        count = 0
+        ele = nums[0]
+
+        for i in range(0,len(nums)):
+            if ele == nums[i]:
+                count += 1
+            else:
+                count -= 1
+            
+            if count == 0:
+                ele = nums[i+1]
+        count1 = 0
+        for i in range(0,len(nums)):
+            if nums[i] == ele:
+                count1 +=1 
+            
+        if count1 > len(nums)/2:
+            return ele
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        cd = {}
+        
+        for i in range(0,len(nums)):
+            if nums[i] in cd:
+                cd[nums[i]] = cd[nums[i]]+1
+            else:
+                cd[nums[i]]  = 1
+            if cd[nums[i]] > len(nums)/2:
+                return nums[i]
+
+        
+        
+            
+        
