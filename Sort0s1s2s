@@ -3,6 +3,7 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+#optimal solution - dutch national flag algo
         low = 0
         mid = 0
         high = len(nums) - 1
@@ -29,7 +30,7 @@ class Solution:
 
 
 
-
+#better solution 
 
         zc = 0
         oc = 0
