@@ -1,0 +1,23 @@
+    	sum = 0
+    	maxi = -2147483648
+    	ansstart = -1
+    	ansend = -1
+    	start = -1
+    	ans = []
+    	for i in range(0,len(a)):
+    	    
+    	    if sum == 0 :
+    	        start = i
+    	    
+    	    sum += a[i]
+    	    
+    	    if sum > maxi:
+    	        maxi = sum
+    	        ansstart = start
+    	        ansend = i
+    	    if sum < 0:
+    	       sum = 0
+    	
+    	for i in range(ansstart,ansend+1):
+    	    ans.append(a[i])
+    	return ans
