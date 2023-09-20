@@ -1,0 +1,33 @@
+class Solution:
+    def rev(self,start,end,a):
+        while(start<end):
+            temp = a[start]
+            a[start] = a[end]
+            a[end] = temp
+
+            start += 1
+            end -= 1
+        
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        ind = -1
+        n = len(nums)
+        for i in range(n-2,-1,-1):
+            if nums[i]<nums[i+1]:
+                ind = i
+                break;
+        if ind == -1:
+            self.rev(0,n-1,nums)
+            return 
+        for i in range(n-1,ind-1,-1):
+            if nums[i]>nums[ind]:
+                temp = nums[i]
+                nums[i] = nums[ind]
+                nums[ind] = temp
+                break;
+
+        self.rev(ind+1,n-1,nums)
+
+
