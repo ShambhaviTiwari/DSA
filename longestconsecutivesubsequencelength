@@ -1,0 +1,21 @@
+from typing import *
+
+def longestSuccessiveElements(a : List[int]) -> int:
+    # Write your code here.
+    n = len(a)
+    if n==0:
+        return 0 
+    longest = 1
+    s = set() 
+    for i in range(n):
+        s.add(a[i])
+    for i in s:
+        if i-1 not in s:
+            count = 1
+            x = i
+            while x+1 in s:
+                x += 1
+                count += 1
+            longest = max(longest,count)
+    return longest
+    
