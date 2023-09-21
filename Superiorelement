@@ -1,0 +1,13 @@
+def superiorElements(a : List[int]) -> List[int]:
+    # Write your code here.
+    ans = []
+    n = len(a)
+    max = a[n-1]
+    ans.append(max)
+
+    for i in range(n-2,-1,-1):
+        if a[i] > max:
+            ans.append(a[i])
+            max = a[i]
+    # ans = ans.sort
+    return ans
