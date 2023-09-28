@@ -1,0 +1,18 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def findAllSubarraysWithGivenSum(arr, s):
+    # Write your code here.
+    presum = 0
+    cnt = 0
+    mpp = defaultdict(int)
+    mpp[0] = 1
+    remove = 0
+    for i in range(0,len(arr)):
+        presum += arr[i]
+        remove = presum - s
+        cnt += mpp[remove]
+        mpp[presum] += 1
+    return cnt
